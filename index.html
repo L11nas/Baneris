@@ -10,20 +10,28 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8; /* Šviesus fono spalva */
       }
+
       .banner {
         position: relative;
-        width: 600px;
+        width: 100%;
+        max-width: 600px; /* Maksimalus plotis */
         height: 350px;
-        overflow: hidden; /* Užtikrina, kad nuotrauka netektų iš krantų */
+        overflow: hidden;
+        border-radius: 10px; /* Apvalūs kampai */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Šešėlis */
       }
 
       .banner img {
-        width: 100%; /* Užtikrina, kad nuotrauka užimtų visą vietą baneryje */
-        height: auto; /* Užtikrina, kad nuotrauka išlaikytų proporcijas */
-        display: inline-block; /* Pakeičia į bloką, kad būtų galima nustatyti plotį ir aukštį */
-        padding-top: 20px; /* Atitraukimas nuo viršaus */
-        padding-left: 40px; /* Atitraukimas nuo kairės */
+        width: 100%;
+        height: auto;
+        display: block; /* Išvalytas inline-block */
+        object-fit: cover; /* Uždengia visą plotą be iškraipymų */
       }
 
       .overlay {
@@ -31,28 +39,32 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 130%;
+        height: 100%; /* Uždengia visą banerį */
+        background: rgba(0, 0, 0, 0.5); /* Tamsus fonas su skaidrumu */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+        color: white; /* Balta spalva tekstui */
       }
 
       h1 {
-        font-size: 3em;
-        color: white;
+        font-size: 2.5em; /* Šiek tiek sumažintas šriftas */
+        margin: 0; /* Nustatytas nulio atstumas */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Šešėlis tekstui */
       }
 
       button {
-        padding: 10px 10px;
+        padding: 10px 20px; /* Didesnis užpildas */
         background-color: #4caf50;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 1.2em;
-        margin-top: 5px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease; /* Švelnus pereinantis efektas */
       }
 
       button:hover {
@@ -74,14 +86,28 @@
       .heartbeat {
         animation: heartbeat 1s infinite;
       }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8em; /* Mažesnis šriftas mobiliems įrenginiams */
+        }
+
+        button {
+          font-size: 1em; /* Mažesnis mygtuko šriftas */
+          padding: 8px 16px; /* Mažesnis užpildas */
+        }
+      }
     </style>
   </head>
   <body>
     <div class="banner">
       <img src="./womenshoe.jpg" alt="Shoe Banner" />
-      <div class="overlay">
-        <h1>50% shoe sale</h1>
-        <button class="heartbeat">Buy Now</button>
+      <div class="overlay" role="banner">
+        <h1>50% Shoe Sale</h1>
+        <a href="https://your-link-here.com" style="text-decoration: none">
+          <button class="heartbeat">Buy Now</button>
+        </a>
       </div>
     </div>
   </body>
